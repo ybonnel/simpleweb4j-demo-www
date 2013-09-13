@@ -18,7 +18,11 @@
             border-radius: 3px 3px;
             margin:10px;
             padding: 10px;
+            min-width: 300px;
             float: left;
+        }
+        .card p {
+            text-align: center;
         }
     </style>
 
@@ -29,8 +33,8 @@
 
 <div ng-controller="CarteCtrl">
     <div class="card" ng-repeat="cidre in cidres">
-        <h1>{{ cidre.name }}</h1>
-        <h2>{{ cidre.price }}€</h2>
+        <h3>{{ cidre.name }}</h3>
+        <p>{{ cidre.price }}€</p>
     </div>
 </div>
 
