@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cidre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            background: #f3f3f3!important;
+        }
+        .card {
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            border-radius: 3px 3px;
+            margin:10px;
+            padding: 10px;
+            float: left;
+        }
+    </style>
+
+</head>
+<body ng-app>
+
+<h1 class="card" style="width: 100%;margin-left:0;margin-top: 0;margin-right: 0;text-align: center">Carte des cidres</h1>
+
+<div ng-controller="CarteCtrl">
+    <div class="card" ng-repeat="cidre in cidres">
+        <h1>{{ cidre.name }}</h1>
+        <h2>{{ cidre.price }}€</h2>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script type="text/javascript">
+    function CarteCtrl($scope, $http) {
+        $http.jsonp("http://localhost:9999/jsonp/cidres?CALLBACK=JSON_CALLBACK").success(function(cidres) {
+            $scope.cidres = cidres;
+        });
+    }
+</script>
+</body>
+</html>
