@@ -38,7 +38,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 <script type="text/javascript">
     function CarteCtrl($scope, $http) {
-        $http.jsonp("http://localhost:9999/jsonp/cidres?CALLBACK=JSON_CALLBACK").success(function(cidres) {
+        $http.jsonp("http://normandyjug-prepa.ybonnel.cloudbees.net/jsonp/cidres?CALLBACK=JSON_CALLBACK").success(function(cidres) {
             $scope.cidres = cidres;
         });
     }
